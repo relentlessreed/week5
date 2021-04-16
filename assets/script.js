@@ -1,5 +1,3 @@
-// Placeholder Header Date/Time
-$("#currentDay").text(dayjs().format("MMM Do, YYYY"));
 // 1. Setup Variables
 var returnedReminders;
 var savedReminders;
@@ -14,12 +12,14 @@ var currentBox;
 //------ Get current date
 //------ Format Current date
 //------ Update DOM with current date
+$("#currentDay").text(dayjs().format("MMM Do, YYYY hh:mm A"));
+currentTime = moment().format("H");
 // 3. Render timeblocks
 //------ Read from localstorage
 //------ Create input field
 //------ Create "SAVE"  button
 //------ Add CSS classes for style
-//---------- Determine if timeblock is `past`, `present`, or `future`
+//---------- Determine if timeblock is `past`, `present`, or `future`S
 //------ Add `value` from localstorage into input
 //------ Append to DOM
 // 4. Event Handler for "SAVE"
