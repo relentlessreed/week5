@@ -3,16 +3,34 @@ var returnedReminders;
 var savedReminders;
 var temporaryArray = [];
 var todaysDate = "";
-var currentTime = "";
+var currentTime = $("#currentDay").text(dayjs().format("MMM Do, YYYY hh:mm A"));
 var hour = "";
 var reminder = "";
 var currentBox;
+
+var schedule = [
+  "9pm",
+  "10pm",
+  "11pm",
+  "12pm",
+  "1pm",
+  "2pm",
+  "3pm",
+  "4pm",
+  "6pm",
+];
+
+function showSchedule() {
+  console.log(schedule);
+
+}
+
+if 
 //------ JQuery select DOM elements
 // 2. Display Current Date in header √
 //------ Get current date
 //------ Format Current date
 //------ Update DOM with current date
-$("#currentDay").text(dayjs().format("MMM Do, YYYY hh:mm A"));
 // 3. Render timeblocks
 //------ Read from localstorage
 //------ Create input field √
@@ -29,6 +47,13 @@ $("#currentDay").text(dayjs().format("MMM Do, YYYY hh:mm A"));
 //------ Display notification/ "toast" when the save is complete
 // Looks through rows, saves input to local storage
 //localStorage.setItem("schedule", JSON.stringify(schedule));
+
+// compare now time with time block times
+
+// main function
+
+showSchedule();
+let hour = schedule[0];
 
 /* ACCEPTANCE CRITERIA
 -------------------------------------------------------
