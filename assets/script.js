@@ -22,10 +22,8 @@ var schedule = [
 
 function showSchedule() {
   console.log(schedule);
-
 }
 
-if 
 //------ JQuery select DOM elements
 // 2. Display Current Date in header √
 //------ Get current date
@@ -52,8 +50,64 @@ if
 
 // main function
 
+$(window).on("load", function () {
+  currentDate = moment().format("dddd MMM Do YYYY, h:mm a");
+  $("#currentDay").append(currentDate);
+  currentTime = moment().format("H");
+
+  function renderAppointments() {
+    storedAppointments = JSON.parse(localStorage.getItem("appointments"));
+    if (storedAppointments !== null) {
+      for (i = 0; i < storedAppointments.length; i++) {
+        returnedAppointments = storedAppointments[i];
+        details = returnedAppointments.details;
+        timeIndex = returnedAppointments.time;
+        timeIndex = timeIndex.replace(":00", "");
+        if (details !== null) {
+          $("#" + timeIndex)
+            .children("div")
+            .children("div")
+            .children("textarea")
+            .val(details);
+        }
+      }
+    }
+  }
+
+  renderAppointments();
+
+  for (i = 0; i <= 23; i++) {
+    CurrentContainer = i;
+    if (currentTime == i) {
+      $("#" + CurrentContainer).addClass("present");
+      $("#" + CurrentContainer)
+        .children("div")
+        .children("div")
+        .children("textarea")
+        .addClass("present");
+    } else if (currentTime > i) {
+      $("#" + CurrentContainer).addClass("past");
+      $("#" + CurrentContainer)
+        .children("div")
+        .children("div")
+        .children("textarea")
+        .addClass("past");
+    } else {
+      $("#" + CurrentContainer).addClass("future");
+      $("#" + CurrentContainer)
+        .children("div")
+        .children("div")
+        .children("textarea")
+        .addClass("future");
+    }
+  }
+});
+
 showSchedule();
-let hour = schedule[0];
+//let hour = schedule[0];
+for (i = 0; i < 18; i++) {
+  // more statements
+}
 
 /* ACCEPTANCE CRITERIA
 -------------------------------------------------------
