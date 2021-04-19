@@ -70,6 +70,7 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
+/*Add CSS classes for style*/
 .container {
   height: 35px;
 }
