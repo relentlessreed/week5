@@ -35,8 +35,8 @@ for (id = 9; id < 18; id++) {
 
   var date = new Date();
   var currentHour = date.getHours();
-
-  currentHour = 14;
+  //changed hour variable to test functionality during late hours
+  //currentHour = 14;
   if (id == currentHour) {
     $(`#${id}`).addClass("present");
   }
