@@ -1,36 +1,12 @@
 // 1. Setup Variables
-var returnedReminders;
-var savedReminders;
-var temporaryArray = [];
-var todaysDate = "";
 var currentTime = $("#currentDay").text(dayjs().format("MMM Do, YYYY hh:mm A"));
-var hour = "";
-var reminder = "";
-var currentBox;
-
-var schedule = [
-  "9pm",
-  "10pm",
-  "11pm",
-  "12pm",
-  "1pm",
-  "2pm",
-  "3pm",
-  "4pm",
-  "6pm",
-];
-
-function showSchedule() {
-  console.log(schedule);
-}
-
 //------ JQuery select DOM elements
 // 2. Display Current Date in header √
-//------ Get current date
-//------ Format Current date
-//------ Update DOM with current date
-// 3. Render timeblocks
-//------ Read from localstorage
+//------ Get current date √
+//------ Format Current date √
+//------ Update DOM with current date √
+// 3. Render timeblocks √
+//------ Read from localstorage <----------- NEXT
 //------ Create input field √
 //------ Create "SAVE"  button √
 //------ Add CSS classes for style
@@ -38,6 +14,40 @@ function showSchedule() {
 //------ Add `value` from localstorage into input
 //------ Append to DOM
 // 4. Event Handler for "SAVE"
+
+// button click trigger event
+$("button").click(function (e) {
+  // selecting parent container
+  var idParentHolder = e.currentTarget.parentElement.id;
+  // finding children of the parent element to locate input
+  var children = $(`#${idParentHolder}`).children();
+  // save operation
+  localStorage.setItem(`blockText${idParentHolder}`, children[1].value);
+});
+// looping over each input field, (starts with 9 ends with 17)
+for (id = 9; id < 18; id++) {
+  // defining variable name to retireved information
+  var returnedInput = localStorage.getItem(`blockText${id}`);
+  // using the id to locate input data
+  var children = $(`#${id}`).children();
+  // manually setting the input field to the value of the local storage saved data
+  children[1].value = returnedInput;
+
+  var date = new Date();
+  var currentHour = date.getHours();
+
+  currentHour = 14;
+  if (id == currentHour) {
+    $(`#${id}`).addClass("present");
+  }
+  if (id < currentHour) {
+    $(`#${id}`).addClass("past");
+  }
+  if (id > currentHour) {
+    $(`#${id}`).addClass("future");
+  }
+}
+
 //------ When a user enters text into a field,
 //------ Then user clicks **matching** "SAVE" button
 //---------- Save the related input field into localstorage
@@ -50,7 +60,7 @@ function showSchedule() {
 
 // main function
 
-$(window).on("load", function () {
+/*$(window).on("load", function () {
   currentDate = moment().format("dddd MMM Do YYYY, h:mm a");
   $("#currentDay").append(currentDate);
   currentTime = moment().format("H");
@@ -120,8 +130,8 @@ for (i = 0; i < 18; i++) {
  THEN each timeblock is color coded to indicate whether it is in the past, present, or future
 √ WHEN I click into a timeblock
 √ THEN I can enter an event
- WHEN I click the save button for that timeblock
- THEN the text for that event is saved in local storage
+√ WHEN I click the save button for that timeblock
+√ THEN the text for that event is saved in local storage
  WHEN I refresh the page
  THEN the saved events persist
 */
