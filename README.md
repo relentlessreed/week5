@@ -7,3 +7,5 @@ When you input a reminder on a containers text field, it will be saved to your l
 [Link to deployable application](https://relentlessreed.github.io/week5/)
 
 ![Screenshot](screenshotworkscheduler.png)
+
+[relentlessreed@gmail.com](mailto:relentlessreed@gmail.com?subject=GitHub)
