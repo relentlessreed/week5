@@ -1,5 +1,3 @@
-# week5 Work Scheduler
-
 <h1>Work Scheduler</h1>
 
 Here is a scheduling application designed to help you with your 9 to 5.
