@@ -10,4 +10,12 @@ When you input a reminder on a containers text field, it will be saved to your l
 
 ![Screenshot](screenshotworkscheduler.png)
 
+Technologies Used:
+
+- HTML
+- CSS
+- Bootstrap
+- JQuery
+- JavaScript
+
 [Email Me: relentlessreed@gmail.com](mailto:relentlessreed@gmail.com?subject=GitHub)
